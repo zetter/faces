@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Faces</title>
+  <meta name="keywords" content="keywords">
+  <link rel="stylesheet" href="stylesheets/reset.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="javascripts/main.js" type="text/javascript"></script>
+</head>
+<body>
+  <div class="container">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/con-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/lab-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/snp-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/libdem-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/ukip-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/dup-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/pc-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/green-h.png">
+    <img class="face" src="http://interactive.guim.co.uk/2015/apr/coalition-builder/assets-1430992306944/imgs/pics/sdlp-h.png">
+  </div>
+  <footer>Experiment by <a href="http://www.chriszetter.com">Chris Zetter</a>, faces from The Guardian's <a href="http://www.theguardian.com/politics/ng-interactive/2015/may/07/election-2015-interactive-coalition-builder">interactive coalition builder</a>.</footer>
+  <script>
+    var change_face = function(){
+      var element = $(this);
+      var source = element.attr('src');
+      var new_source = ''
+      if (source.match(/\-n\.png/)) {
+        new_source = source.replace('-n.png', '-h.png');
+      } else if (source.match(/\-h\.png/)) {
+        new_source = source.replace('-h.png', '-a.png');       
+      } else if (source.match(/\-a\.png/)) {
+        new_source = source.replace('-a.png', '-n.png');
+      }
+      element.attr('src', new_source);
+    }
+    $('.face').click(change_face).mouseover(change_face)
+  </script>
+</body>
+</html>
